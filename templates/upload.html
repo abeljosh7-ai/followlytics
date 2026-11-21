@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Instagram Data | Followlytics</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0; padding: 30px 15px; font-family: Arial, sans-serif;
+            color: white; background: linear-gradient(135deg, #11111f, #28113c);
+        }
+        .container { max-width: 850px; margin: auto; }
+        h1 { text-align: center; color: #c084fc; font-size: 32px; }
+        .subtitle { text-align: center; color: #bbb; margin-bottom: 30px; }
+        .panel {
+            background: #1d1d2d; padding: 25px; border-radius: 15px;
+            margin-bottom: 25px; border: 1px solid #49335f;
+        }
+        h2 { color: #c084fc; margin-top: 0; }
+        .step { display: flex; gap: 15px; margin: 22px 0; align-items: flex-start; }
+        .number {
+            min-width: 35px; height: 35px; background: #9333ea; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; font-weight: bold;
+        }
+        .step p { margin: 5px 0; line-height: 1.6; color: #ddd; }
+        .highlight { color: #d8b4fe; font-weight: bold; }
+        .upload-box {
+            text-align: center; border: 2px dashed #a855f7; padding: 30px 20px;
+            border-radius: 12px; background: #29293c;
+        }
+        input[type="file"] { width: 100%; max-width: 350px; margin: 20px auto; color: white; }
+        button {
+            width: 100%; max-width: 350px; padding: 15px;
+            background: linear-gradient(90deg, #9333ea, #c026d3);
+            border: none; border-radius: 9px; color: white; font-size: 16px;
+            font-weight: bold; cursor: pointer;
+        }
+        button:hover { opacity: .9; }
+        .message { margin-top: 20px; padding: 13px; background: #54232b; color: #ffbaba; border-radius: 8px; }
+        .warning {
+            background: #493719; padding: 15px; border-radius: 9px; color: #ffe2a3;
+            line-height: 1.6; margin-top: 20px;
+        }
+        .back { display: block; text-align: center; margin-top: 25px; color: #c084fc; text-decoration: none; }
+        a { color: #d8b4fe; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Followlytics</h1>
+    <p class="subtitle">Track • Analyze • Grow</p>
+
+    <div class="panel">
+        <h2>📥 How to Download Your Instagram Data</h2>
+        <div class="step">
+            <div class="number">1</div>
+            <p>Open your <span class="highlight">Instagram app</span>. Go to your profile and tap the three-line menu (☰).</p>
+        </div>
+        <div class="step">
+            <div class="number">2</div>
+            <p>Open <span class="highlight">Accounts Center</span>.</p>
+        </div>
+        <div class="step">
+            <div class="number">3</div>
+            <p>Select <span class="highlight">Your information and permissions</span>.</p>
+        </div>
+        <div class="step">
+            <div class="number">4</div>
+            <p>Tap <span class="highlight">Download your information</span>, then choose Download or transfer information.</p>
+        </div>
+        <div class="step">
+            <div class="number">5</div>
+            <p>Select your Instagram account. Choose <span class="highlight">Some of your information</span>. Select <span class="highlight">Followers and following</span>.</p>
+        </div>
+        <div class="step">
+            <div class="number">6</div>
+            <p>Choose <span class="highlight">Download to device</span>. Select <span class="highlight">JSON</span> format and choose All time if available. Request your download.</p>
+        </div>
+        <div class="step">
+            <div class="number">7</div>
+            <p>When Instagram notifies you that your download is ready, download the ZIP file to your computer.</p>
+        </div>
+        <div class="warning">
+            ⚠️ <strong>Important:</strong> Choose JSON format, not HTML. Upload the original ZIP file without extracting it.
+        </div>
+    </div>
+
+    <div class="panel">
+        <h2>📁 Upload Your Instagram ZIP File</h2>
+        <div class="upload-box">
+            <h3>Choose Instagram ZIP File</h3>
+            <form action="/upload" method="POST" enctype="multipart/form-data">
+                <input type="file" name="instagram_file" accept=".zip" required>
+                <br>
+                <button type="submit">Analyze My Followers →</button>
+            </form>
+        </div>
+        {% if message %}
+            <div class="message">{{ message }}</div>
+        {% endif %}
+    </div>
+
+    <a href="/" class="back">← Back to Home</a>
+</div>
+</body>
+</html>
+
